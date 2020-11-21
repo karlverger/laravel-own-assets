@@ -20,8 +20,8 @@ use Karlverger\LaravelOwnAsset\Events\Unasseted;
  * Class Asset.
  *
  * @property \Illuminate\Database\Eloquent\Model $user
- * @property \Illuminate\Database\Eloquent\Model $favoriter
- * @property \Illuminate\Database\Eloquent\Model $favoriteable
+ * @property \Illuminate\Database\Eloquent\Model $asseter
+ * @property \Illuminate\Database\Eloquent\Model $assetable
  */
 class Asset extends Model
 {
@@ -44,9 +44,9 @@ class Asset extends Model
     {
         parent::boot();
 
-        self::saving(function ($favorite) {
+        self::saving(function ($asset) {
             $userForeignKey = \config('ownassets.user_foreign_key');
-            $favorite->{$userForeignKey} = $favorite->{$userForeignKey} ?: auth()->id();
+            $asset->{$userForeignKey} = $asset->{$userForeignKey} ?: auth()->id();
         });
     }
 
