@@ -27,7 +27,7 @@ class FeatureTest extends TestCase
 
         Event::fake();
 
-        config(['ownassets.providers.users.model' => User::class]);
+        config(['auth.providers.users.model' => User::class]);
     }
 
     public function testBasicFeatures()

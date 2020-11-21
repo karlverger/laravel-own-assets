@@ -16,10 +16,8 @@ use Illuminate\Database\Eloquent\Model;
 use Karlverger\LaravelOwnAsset\Events\Asseted;
 use Karlverger\LaravelOwnAsset\Events\Unasseted;
 
-;
-
 /**
- * Class Favorite.
+ * Class Asset.
  *
  * @property \Illuminate\Database\Eloquent\Model $user
  * @property \Illuminate\Database\Eloquent\Model $favoriter
