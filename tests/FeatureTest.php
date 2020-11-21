@@ -32,7 +32,7 @@ class FeatureTest extends TestCase
 
     public function testBasicFeatures()
     {
-        $user = User::create(['name' => 'overtrue']);
+        $user = User::create(['name' => 'karl verger']);
         $post = Post::create(['title' => 'Hello world!']);
 
         $user->asset($post);

@@ -11,8 +11,12 @@ namespace Karlverger\LaravelOwnAsset;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelFavorite\Events\Favorited;
-use Overtrue\LaravelFavorite\Events\Unfavorited;
+
+
+use Karlverger\LaravelOwnAsset\Events\Asseted;
+use Karlverger\LaravelOwnAsset\Events\Unasseted;
+
+;
 
 /**
  * Class Favorite.
@@ -27,8 +31,8 @@ class Asset extends Model
      * @var string[]
      */
     protected $dispatchesEvents = [
-        'created' => Favorited::class,
-        'deleted' => Unfavorited::class,
+        'created' => Asseted::class,
+        'deleted' => Unasseted::class,
     ];
 
     public function __construct(array $attributes = [])
