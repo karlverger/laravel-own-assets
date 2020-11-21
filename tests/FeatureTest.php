@@ -45,7 +45,7 @@ class FeatureTest extends TestCase
         });
 
         $this->assertTrue($user->hasAsseted($post));
-        $this->assertTrue($post->isAsseteddBy($user));
+        $this->assertTrue($post->isAssetedBy($user));
 
         $user->unasset($post);
 
