@@ -25,13 +25,7 @@ use Karlverger\LaravelOwnAsset\Events\Unasseted;
  */
 class AssetProperty extends Model
 {
-    /**
-     * @var string[]
-     */
-    protected $dispatchesEvents = [
-        'created' => Asseted::class,
-        'deleted' => Unasseted::class,
-    ];
+
 
     public function __construct(array $attributes = [])
     {
