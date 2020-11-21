@@ -3,7 +3,6 @@ Laravel Own Assets
 
 ❤️ User assets feature for Laravel Application.
 
-![CI](https://github.com/karlverger/laravel-own-assets/workflows/CI/badge.svg)
 
 
 ## Installing

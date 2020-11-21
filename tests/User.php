@@ -11,14 +11,14 @@
 namespace Tests;
 
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelFavorite\Traits\Favoriter;
+use Karlverger\LaravelOwnAsset\Traits\;
 
 /**
  * Class User.
  */
 class User extends Model
 {
-    use Favoriter;
+    use Asseter;
 
     protected $fillable = ['name'];
 }
