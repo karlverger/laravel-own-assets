@@ -8,7 +8,7 @@
             "email": "karl.verger@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    
     "require": {
         "laravel/framework": "^5.5||~6.0||~7.0||~8.0"
     },
