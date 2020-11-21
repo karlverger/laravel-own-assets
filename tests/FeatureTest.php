@@ -38,7 +38,7 @@ class FeatureTest extends TestCase
         $user->asset($post);
 
 
-        print_r($post,true);
+        $post->assets->addAssetProperty("clef","value");
 
         Event::assertDispatched(Asseted::class, function ($event) use ($user, $post) {
             return $event->asset->assetable instanceof Post
@@ -47,7 +47,7 @@ class FeatureTest extends TestCase
                 && $event->asset->assetable->id === $post->id;
         });
 
-        $this->assertTrue( $post->assets != null  );
+        $this->assertTrue(  count($post->assets->assetProperties()->get()) >0  );
         $this->assertTrue($user->hasAsseted($post));
         $this->assertTrue($post->isAssetedBy($user));
 
