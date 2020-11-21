@@ -64,7 +64,6 @@ class Asset extends Model
     public function user()
     {
         return $this->belongsTo(\config('auth.providers.users.model'), \config('ownassets.user_foreign_key'));
-        
     }
 
     /**

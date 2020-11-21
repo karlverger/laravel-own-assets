@@ -38,7 +38,7 @@ class FeatureTest extends TestCase
         $user->asset($post);
 
 
-        $post->assetable->addAssetProperty("clef","value");
+        prin_r($post,true);
 
         Event::assertDispatched(Asseted::class, function ($event) use ($user, $post) {
             return $event->asset->assetable instanceof Post
