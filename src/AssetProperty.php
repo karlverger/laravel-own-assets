@@ -57,5 +57,4 @@ class AssetProperty extends Model
     {
         return $this->belongsTo(\config('ownassets.asset_model'), \config('ownassets.asset_foreign_key'));
     }
-
 }
