@@ -21,7 +21,7 @@ trait Asseter
     public function asset(Model $object)
     {
         /* @var \Karlverger\LaravelOwnAsset\Traits\Assetable $object */
-        if (!$this->hasHasseted($object)) {
+        if (!$this->hasAsseted($object)) {
             $asset = app(config('ownassets.asset_model'));
             $asset->{config('ownassets.user_foreign_key')} = $this->getKey();
 
