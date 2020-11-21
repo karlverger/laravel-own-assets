@@ -67,21 +67,21 @@ class Post extends Model
 
 ```php
 $user = User::find(1);
-$post = Post::find(2);
+$car = Car::find(2);
 
-$user->asset($post);
-$user->unasset($post);
-$user->toggleAsset($post);
-$user->getAssetItems(Post::class)
+$user->asset($car);
+$user->unasset($car);
+$user->toggleAsset($car);
+$user->getAssetItems(Car::class)
 
-$user->hasAsseted($post); 
-$post->isAssetedBy($user); 
+$user->hasAsseted($car); 
+$car->isAssetedBy($user); 
 ```
 
 #### Get object asseters:
 
 ```php
-foreach($post->asseters as $user) {
+foreach($car->asseters as $user) {
     // echo $user->name;
 }
 ```
@@ -90,12 +90,12 @@ foreach($post->asseters as $user) {
 Used Asseter Trait Model can easy to get Assetable Models to do what you want.
 *note: this method will return a `Illuminate\Database\Eloquent\Builder` *
 ```php
-$user->getAssetItems(Post::class);
+$user->getAssetItems(Car::class);
 
 // Do more
-$assetPosts = $user->getAssetItems(Post::class)->get();
-$assetPosts = $user->getAssetItems(Post::class)->paginate();
-$assetPosts = $user->getAssetItems(Post::class)->where('title', 'Laravel-Favorite')->get();
+$assetCars = $user->getAssetItems(Car::class)->get();
+$assetCars = $user->getAssetItems(Car::class)->paginate();
+$assetCars = $user->getAssetItems(Car::class)->where('make', 'Jaguar')->get();
 ```
 
 ### Aggregations
@@ -105,7 +105,7 @@ $assetPosts = $user->getAssetItems(Post::class)->where('title', 'Laravel-Favorit
 $user->assets()->count(); 
 
 // with type
-$user->assets()->withType(Post::class)->count(); 
+$user->assets()->withType(Car::class)->count(); 
 
 // favoriters count
 $post->asseters()->count();
