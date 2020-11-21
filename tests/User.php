@@ -11,7 +11,7 @@
 namespace Tests;
 
 use Illuminate\Database\Eloquent\Model;
-use Karlverger\LaravelOwnAsset\Traits\;
+use Karlverger\LaravelOwnAsset\Traits\Asseter;
 
 /**
  * Class User.
