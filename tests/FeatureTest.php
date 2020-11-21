@@ -47,7 +47,7 @@ class FeatureTest extends TestCase
                 && $event->asset->assetable->id === $post->id;
         });
 
-        $this->assertTrue(  count($user->getAssetItem($post)[0]->assetProperties()->get()) >0  );
+        $this->assertTrue(  count($user->getAssetItems($post)->assetProperties()->get()) >0  );
         $this->assertTrue($user->hasAsseted($post));
         $this->assertTrue($post->isAssetedBy($user));
 
