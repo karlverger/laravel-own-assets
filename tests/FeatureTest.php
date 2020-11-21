@@ -35,7 +35,26 @@ class FeatureTest extends TestCase
         $user = User::create(['name' => 'overtrue']);
         $post = Post::create(['title' => 'Hello world!']);
 
+        $user->asset($post);
 
+        Event::assertDispatched(Asseted::class, function ($event) use ($user, $post) {
+            return $event->asset->assetable instanceof Post
+                && $event->asset->user instanceof User
+                && $event->asset->user->id === $user->id
+                && $event->asset->assetable->id === $post->id;
+        });
+
+        $this->assertTrue($user->hasAsseted($post));
+        $this->assertTrue($post->isAsseteddBy($user));
+
+        $user->unasset($post);
+
+        Event::assertDispatched(Unasseted::class, function ($event) use ($user, $post) {
+            return $event->asset->assetable instanceof Post
+                && $event->asset->user instanceof User
+                && $event->asset->user->id === $user->id
+                && $event->asset->assetable->id === $post->id;
+        });
     }
 
 }
