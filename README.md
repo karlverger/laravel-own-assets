@@ -21,7 +21,7 @@ $ php artisan vendor:publish --provider="Karlverger\\LaravelOwnAsset\\AssetServi
 
 ### Migrations
 
-This step is also optional, if you want to custom favorites table, you can publish the migration files:
+This step is also optional, if you want to custom assets table, you can publish the migration files:
 
 ```php
 $ php artisan vendor:publish --provider="Karlverger\\LaravelOwnAsset\\AssetServiceProvider" --tag=migrations
