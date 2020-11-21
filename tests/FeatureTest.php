@@ -37,8 +37,10 @@ class FeatureTest extends TestCase
 
         $user->asset($post);
 
-        $myAsset = $user->assets()->where("assetable_type",User::class)->get();
-        //$myAsset->addAssetProperty("clef","value");
+        $myAsset = $user->assets()
+                            ->where("assetable_type",Post::class )
+                            ->where("assetable_id",$post->id )->get();
+        $myAsset->addAssetProperty("clef","value");
 
         Event::assertDispatched(Asseted::class, function ($event) use ($user, $post) {
             return $event->asset->assetable instanceof Post
@@ -47,7 +49,9 @@ class FeatureTest extends TestCase
                 && $event->asset->assetable->id === $post->id;
         });
 
-        $this->assertTrue(  count($myAsset) >0  );
+    
+    
+        $this->assertTrue(  count($myAsset->assetProperties()) >0  );
         $this->assertTrue($user->hasAsseted($post));
         $this->assertTrue($post->isAssetedBy($user));
 
