@@ -64,7 +64,7 @@ trait Asseter
      */
     public function assets()
     {
-        return $this->hasMany(config('ownassets.favorite_model'), config('ownassets.user_foreign_key'), $this->getKeyName());
+        return $this->hasMany(config('ownassets.asset_model'), config('ownassets.user_foreign_key'), $this->getKeyName());
     }
 
     /**
