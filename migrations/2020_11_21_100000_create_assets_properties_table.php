@@ -22,7 +22,8 @@ class CreateAssetsPropertiesTable extends Migration
         Schema::create(config('ownassets.assets_properties_table'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger(config('ownassets.asset_foreign_key'))->index()->comment('asset_id');
-            $table->morphs('assetable');
+            $table->string('key');
+            $table->string('value');
             $table->timestamps();
         });
     }
