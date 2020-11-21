@@ -83,10 +83,5 @@ class Asset extends Model
     }
 
 
-    public function assetProperties()
-    {
-        return $this->hasMany(\config('ownassets.property_model'));
-    }
-
 
 }

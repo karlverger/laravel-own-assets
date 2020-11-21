@@ -59,7 +59,10 @@ trait Assetable
         )
             ->where('assetable_type', $this->getMorphClass());
     }
-
+    public function assetProperties()
+    {
+        return $this->hasMany(\config('ownassets.property_model'));
+    }
     public function addAssetProperty($key, $value)
     {
         $assetPropertyClass = \config('ownassets.property_model');
@@ -70,5 +73,5 @@ trait Assetable
         $property->key = $key;
         $property->value = $value;
         $this->assetProperties()->save($property);
-    }    
+    }
 }
