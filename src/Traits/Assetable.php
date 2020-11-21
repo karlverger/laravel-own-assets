@@ -41,7 +41,7 @@ trait Assetable
      */
     public function assets()
     {
-        return $this->morphMany(config('ownassets.favorite_model'), 'assetable');
+        return $this->morphMany(config('ownassets.asset_model'), 'assetable');
     }
 
     /**
