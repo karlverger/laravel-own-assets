@@ -88,15 +88,5 @@ class Asset extends Model
         return $this->hasMany(\config('ownassets.property_model'));
     }
 
-    public function addAssetProperty($key,$value){
-        $assetPropertyClass = \config('ownassets.property_model');
-        $property = new $assetPropertyClass;
-        
-        
-        //$property = new \Karlverger\LaravelOwnAsset\AssetProperty();
-        $property->key = $key;
-        $property->value = $value;
-        $this->assetProperties()->save($property);
 
-    }
 }
