@@ -25,8 +25,6 @@ use Karlverger\LaravelOwnAsset\Events\Unasseted;
  */
 class AssetProperty extends Model
 {
-
-
     public function __construct(array $attributes = [])
     {
         $this->table = \config('ownassets.assets_properties_table');

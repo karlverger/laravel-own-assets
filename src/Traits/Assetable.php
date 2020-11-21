@@ -59,5 +59,4 @@ trait Assetable
         )
             ->where('assetable_type', $this->getMorphClass());
     }
-
 }

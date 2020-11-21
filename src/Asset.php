@@ -96,5 +96,5 @@ class Asset extends Model
         $property->key = $key;
         $property->value = $value;
         $this->assetProperties()->save($property);
-    }    
+    }
 }
