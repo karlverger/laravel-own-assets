@@ -69,7 +69,9 @@ class Post extends Model
 $user = User::find(1);
 $car = Car::find(2);
 
-$user->asset($car);
+\Karlverger\LaravelOwnAsset\Asset  $asset = $user->asset($car);
+$asset->addAssetProperty("clef 1","new value 1");
+
 $user->unasset($car);
 $user->toggleAsset($car);
 $user->getAssetItems(Car::class)
@@ -86,6 +88,8 @@ foreach($car->asseters as $user) {
 }
 ```
 
+
+
 #### Get Asset Model from User.
 Used Asseter Trait Model can easy to get Assetable Models to do what you want.
 *note: this method will return a `Illuminate\Database\Eloquent\Builder` *
@@ -98,6 +102,15 @@ $assetCars = $user->getAssetItems(Car::class)->paginate();
 $assetCars = $user->getAssetItems(Car::class)->where('make', 'Jaguar')->get();
 ```
 
+#### Get Asset Model relation pivot:
+
+```php
+\Karlverger\LaravelOwnAsset\Asset $asset = $car->assets()
+  ->where("assetable_type",Car::class)
+  ->where("assetable_id",$car->id)
+  ->where("user_id",$user->id)->first();
+```
+
 ### Aggregations
 
 ```php
@@ -107,7 +120,7 @@ $user->assets()->count();
 // with type
 $user->assets()->withType(Car::class)->count(); 
 
-// favoriters count
+// asseters count
 $post->asseters()->count();
 ```
 
