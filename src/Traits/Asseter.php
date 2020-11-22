@@ -28,7 +28,6 @@ trait Asseter
             $object->assets()->save($asset);
             return $asset;
         }
-        
     }
 
     public function unasset(Model $object)
@@ -41,6 +40,7 @@ trait Asseter
             ->first();
 
         if ($relation) {
+            $relation->assetProperties()->delete();
             $relation->delete();
         }
     }

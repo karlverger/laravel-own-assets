@@ -98,10 +98,10 @@ class Asset extends Model
         $property->key = $key;
         $property->value = $value;
         $item = $this->assetProperties()->save($property);
-        if($item) {
+        if ($item) {
             return $item->id;
         } else {
             return null;
-        }        
+        }
     }
 }
