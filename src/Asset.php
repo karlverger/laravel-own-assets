@@ -82,19 +82,26 @@ class Asset extends Model
         return $query->where('assetable_type', app($type)->getMorphClass());
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function assetProperties()
     {
         return $this->hasMany(\config('ownassets.property_model'));
     }
+
+
     public function addAssetProperty($key, $value)
     {
         $assetPropertyClass = \config('ownassets.property_model');
         $property = new $assetPropertyClass();
-
-
-        //$property = new \Karlverger\LaravelOwnAsset\AssetProperty();
         $property->key = $key;
         $property->value = $value;
-        $this->assetProperties()->save($property);
+        $item = $this->assetProperties()->save($property);
+        if($item) {
+            return $item->id;
+        } else {
+            return null;
+        }        
     }
 }

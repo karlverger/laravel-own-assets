@@ -26,7 +26,9 @@ trait Asseter
             $asset->{config('ownassets.user_foreign_key')} = $this->getKey();
 
             $object->assets()->save($asset);
+            return $asset;
         }
+        
     }
 
     public function unasset(Model $object)

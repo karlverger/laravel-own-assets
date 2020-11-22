@@ -35,16 +35,16 @@ class FeatureTest extends TestCase
         $user = User::create(['name' => 'karl verger']);
         $post = Post::create(['title' => 'Hello world!']);
 
-        $user->asset($post);
+        $asset = $user->asset($post);
 
 
         $assetPivot = $user->assets()
                             ->where("assetable_type",Post::class )
                             ->where("assetable_id",$post->id )->first();
 
-        $assetItem = $user->getAssetItems(Post::class);
-        //print_r($assetItem,true);
-                            $assetPivot->addAssetProperty("clef","value");
+        $assetItem = $user->getAssetItems(Post::class)->get();
+        
+        
 
         Event::assertDispatched(Asseted::class, function ($event) use ($user, $post) {
             return $event->asset->assetable instanceof Post
@@ -53,7 +53,8 @@ class FeatureTest extends TestCase
                 && $event->asset->assetable->id === $post->id;
         });
     
-        //$this->assertTrue(  count($assetItem) >0  );
+        $this->assertTrue($asset->addAssetProperty("clef","value") != null);
+        $this->assertTrue(  count($assetItem) >0  );
         $this->assertTrue(  count($assetPivot->assetProperties) >0  );
         $this->assertTrue(  $assetPivot->assetProperties[0]->key =="clef"  );
 
