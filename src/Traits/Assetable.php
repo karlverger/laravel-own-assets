@@ -53,7 +53,7 @@ trait Assetable
     {
         return $this->belongsToMany(
             config('auth.providers.users.model'),
-            config('ownassets.favorites_table'),
+            config('ownassets.assets_table'),
             'assetable_id',
             config('ownassets.user_foreign_key')
         )
