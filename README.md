@@ -71,6 +71,10 @@ $car = Car::find(2);
 
 \Karlverger\LaravelOwnAsset\Asset  $asset = $user->asset($car);
 $asset->addAssetProperty("clef 1","new value 1");
+$asset->addAssetProperty("clef 2","new value 1");
+$asset->deleteAssetProperty("clef 2");
+$asset->getAssetProperty("clef 1")
+
 
 $user->unasset($car);
 $user->toggleAsset($car);

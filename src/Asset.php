@@ -112,14 +112,16 @@ class Asset extends Model
      * @param String $key
      * @return Karlverger\LaravelOwnAsset\AssetProperty
      */
-    public function getAssetProperty($key){
-        return $this->assetProperties()->where("key",$key)->first();
+    public function getAssetProperty($key)
+    {
+        return $this->assetProperties()->where("key", $key)->first();
     }
 
 
-    public function deleteAssetProperty($key){
+    public function deleteAssetProperty($key)
+    {
         $this->assetProperties()
-                ->where("key",$key)
+                ->where("key", $key)
                 ->delete();
     }
 }
