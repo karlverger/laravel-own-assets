@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Application Test Suite" tests="1" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.311956">
+    <testsuite name="Tests\FeatureTest" file="/Users/karlverger/Projects/laravel/8/owk-packages/laravel-own-assets/tests/FeatureTest.php" tests="1" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.311956">
+      <testcase name="testBasicFeatures" class="Tests\FeatureTest" classname="Tests.FeatureTest" file="/Users/karlverger/Projects/laravel/8/owk-packages/laravel-own-assets/tests/FeatureTest.php" line="33" assertions="10" time="0.311956"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

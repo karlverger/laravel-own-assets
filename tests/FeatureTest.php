@@ -53,7 +53,15 @@ class FeatureTest extends TestCase
                 && $event->asset->assetable->id === $post->id;
         });
     
+
+
         $this->assertTrue($asset->addAssetProperty("clef","value") != null);
+        $this->assertTrue($asset->addAssetProperty("clef 2","value") != null);
+
+        $asset->deleteAssetProperty("clef 2");
+        $this->assertTrue($asset->getAssetProperty("clef 2") == null);
+
+        $this->assertTrue($asset->asseter()->first()->name == $user->name);
         $this->assertTrue(  count($assetItem) >0  );
         $this->assertTrue(  count($assetPivot->assetProperties) >0  );
         $this->assertTrue(  $assetPivot->assetProperties[0]->key =="clef"  );

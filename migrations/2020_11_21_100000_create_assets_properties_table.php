@@ -25,6 +25,8 @@ class CreateAssetsPropertiesTable extends Migration
             $table->string('key');
             $table->string('value');
             $table->timestamps();
+
+            $table->foreign(config('ownassets.asset_foreign_key'))->references("id")->on(config('ownassets.assets_table'))->onDelete("cascade");
         });
     }
 

@@ -90,7 +90,11 @@ class Asset extends Model
         return $this->hasMany(\config('ownassets.property_model'));
     }
 
-
+    /**
+     * @param String $key
+     * @param String $value
+     * @return Karlverger\LaravelOwnAsset\AssetProperty
+     */
     public function addAssetProperty($key, $value)
     {
         $assetPropertyClass = \config('ownassets.property_model');
@@ -99,9 +103,23 @@ class Asset extends Model
         $property->value = $value;
         $item = $this->assetProperties()->save($property);
         if ($item) {
-            return $item->id;
+            return $item;
         } else {
             return null;
         }
+    }
+    /**
+     * @param String $key
+     * @return Karlverger\LaravelOwnAsset\AssetProperty
+     */
+    public function getAssetProperty($key){
+        return $this->assetProperties()->where("key",$key)->first();
+    }
+
+
+    public function deleteAssetProperty($key){
+        $this->assetProperties()
+                ->where("key",$key)
+                ->delete();
     }
 }
